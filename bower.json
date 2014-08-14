@@ -1,0 +1,29 @@
+{
+  "name": "jquery-rescon",
+  "version": "0.0.1",
+  "homepage": "https://github.com/caneruguz/jquery-rescon",
+  "authors": [
+    "Caner Uguz <caneruguz@gmail.com>"
+  ],
+  "description": "Build responsive boottrap pages within containers in websites",
+  "main": "gulpfile.js",
+  "keywords": [
+    "bootstrap",
+    "responsive",
+    "jquery",
+    "plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "jquery-ui": "~1.11.1",
+    "bootstrap": "~3.2.0"
+  }
+}

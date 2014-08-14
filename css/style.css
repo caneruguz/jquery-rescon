@@ -1,0 +1,11 @@
+div[class^="col-"]
+{
+	border: 1px solid #222;
+}
+div[data-rescon^="col-"]
+{
+	border: 1px solid #222;
+}    
+.row {
+	border: 1px dashed red;
+}
