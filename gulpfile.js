@@ -21,7 +21,6 @@ gulp.task('css', function(){
 gulp.task('js', function(){
     return gulp.src(paths.jsfiles)
         .pipe(concat('bundle.js'))
-        .pipe(uglify())
         .pipe(gulp.dest('./demo/'))
 });
 

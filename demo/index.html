@@ -21,7 +21,8 @@
   </head>
 
   <body>
-    <div class="" style="width:400px; margin: 0 auto;">
+
+    <div id="pageWrap" class="" style="width: 600px;margin: 0 auto;">
 
       <div class="page-header">
         <h1>Bootstrap grid examples</h1>
@@ -41,8 +42,8 @@
       </div>
 
       <div class="rescon">
-        <h3>Three unequal columns</h3>
-        <p>Get three columns <strong>starting at desktops and scaling to large desktops</strong> of various widths. Remember, grid columns should add up to twelve for a single horizontal block. More than that, and columns start stacking no matter the viewport.</p>
+        <h3 class="someclass visible-md-inline-block some other class">Three unequal columns</h3>
+        <p class="visible-md-block">Get three columns <strong>starting at desktops and scaling to large desktops</strong> of various widths. Remember, grid columns should add up to twelve for a single horizontal block. More than that, and columns start stacking no matter the viewport.</p>
         <div class="row">
           <div class="col-md-3">.col-md-3</div>
           <div class="col-md-6">.col-md-6</div>
@@ -52,7 +53,7 @@
 
       <div class="rescon">
 
-        <h3>Two columns</h3>
+        <h3 class="visible-md">Two columns</h3>
         <p>Get two columns <strong>starting at desktops and scaling to large desktops</strong>.</p>
         <div class="row">
           <div class="col-md-8">.col-md-8</div>
@@ -166,13 +167,16 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-              $(".rescon").rescon({action : "run"}); 
+            $(".rescon").rescon({action : "run", container : "#pageWrap"}); 
+            
             $('#reset').on('click', function(){
               $(".rescon").rescon({ action : "reset"});
             })
+            
             $('#run').on('click', function(){
-              $(".rescon").rescon({ action : "run"});
+              $(".rescon").rescon({ action : "run",  container : "#pageWrap"});
             })
+            
 
         })
         
