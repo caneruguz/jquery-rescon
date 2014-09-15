@@ -5,6 +5,9 @@ var less = require('gulp-less');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var rename = require("gulp-rename");
+var header = require('gulp-header');
+var pkg = require('./package.json');
+
 
 var paths = {
     cssfiles : ["./bower_components/bootstrap/dist/css/*.min.css", "./bower_components/jquery-ui/themes/ui-lightness/*.min.css", "./css/*.css"],
@@ -24,16 +27,27 @@ gulp.task('js', function(){
         .pipe(gulp.dest('./demo/'))
 });
 
+var banner = ['/**',
+    ' * <%= pkg.name %> - <%= pkg.description %>',
+    ' * @author <%= pkg.author%>',
+    ' * @version v<%= pkg.version %>',
+    ' * @link <%= pkg.homepage %>',
+    ' * @license <%= pkg.license %>',
+    ' */',
+    ''].join('\n');
+
 gulp.task('dist_full', function(){
     return gulp.src('./scripts/scripts.js')
-            .pipe(rename('jquery-rescon.js'))
-            .pipe(gulp.dest('./dist/'))
+        .pipe(rename('jquery-rescon.js'))
+        .pipe(header(banner, { pkg : pkg } ))
+        .pipe(gulp.dest('./dist/'))
 })
 gulp.task('dist_min', ['dist_full'], function(){
     return gulp.src('./scripts/scripts.js')
-            .pipe(uglify())
-            .pipe(rename('jquery-rescon.min.js'))
-            .pipe(gulp.dest('./dist/'))
+        .pipe(uglify())
+        .pipe(rename('jquery-rescon.min.js'))
+        .pipe(header(banner, { pkg : pkg } ))
+        .pipe(gulp.dest('./dist/'))
 })
 
 gulp.task('watch', function() {
