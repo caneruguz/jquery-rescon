@@ -11,7 +11,7 @@
     "author": {
         "name": "Caner Uguz",
         "url": "https://github.com/caneruguz"
-    }
+    },
     "licenses": [
         {
             "type": "Apache v2",
@@ -26,5 +26,4 @@
         "jquery": "~2.1.1",
         "bootstrap": "~3.2.0"
     }
-}
 }
