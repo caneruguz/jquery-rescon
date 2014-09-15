@@ -1,6 +1,6 @@
 {
   "name": "jquery-rescon",
-  "version": "0.2.0",
+  "version": "0.8.0",
   "description": "Build responsive bootstrap pages within fixed width containers in websites",
   "main": "gulpfile.js",
   "dependencies": {
