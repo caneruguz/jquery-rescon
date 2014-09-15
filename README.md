@@ -25,7 +25,7 @@ $(document).ready(function(){
     // Regular methods of doing it. Considering .rescon is the container for your columns
       $(".rescon").rescon();
     
-    // You can programmatically reset the plugin and take things back to their original state. This example uses a button click    
+    // You can programmatically reset the plugin and take things back to their original state. This example uses a button click
     $('#reset').on('click', function(){
         $(".rescon").rescon({ action : "reset"});
     })
@@ -34,6 +34,13 @@ $(document).ready(function(){
     $('#run').on('click', function(){
       $(".rescon").rescon({ action : "run"});
     })
+    
+    // Add custom sizes
+    $(".rescon").rescon( { 
+        sizes : { "xs" : 0, "sm" : 300, "md" : 600, "lg" : 1000 }
+    });
+        
+
 })
 ```
 
