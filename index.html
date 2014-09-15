@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jquery-rescon by caneruguz</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Jquery-rescon</h1>
+        <p>Making containers responsive within web pages that use bootstrap</p>
+
+        <p class="view"><a href="https://github.com/caneruguz/jquery-rescon">View the Project on GitHub <small>caneruguz/jquery-rescon</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/caneruguz/jquery-rescon/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/caneruguz/jquery-rescon/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/caneruguz/jquery-rescon">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="jquery-rescon" class="anchor" href="#jquery-rescon"><span class="octicon octicon-link"></span></a>jquery-rescon</h1>
+
+<p>Jquery plugin for allowing fixed width containers to render responsively regardless of viewport size</p>
+
+<h4>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h4>
+
+<p>At the time of the creation of this plugin Bootstrap responsiveness used the <a href="https://github.com/media" class="user-mention">@media</a> tags in css to define its grid so that all grid related sizing was based on how wide the viewport of the browser was. </p>
+
+<p>However when you put bootstrap content into fixed width containers, you lose the responsiveness of the page. This is a problem for making containers look good in small sizes as well, especially in cases of widgets or widget heavy sites like dashboards. </p>
+
+<p>This plugin does something very simple. It gets the width of the container and readjusts the bootstrap classes. For instance if a page has .col-xs-12 and col-md-6; the script recognizes that although the page is wide the container is within xs width. So the script removes .col-md-6 so that only the xs style goes into effect. </p>
+
+<p>This plugin also supports the bottom-up hierachy of bootstrap. If you define col-xs-6, all sizes higher than xs will also follow this. </p>
+
+<p>For divs without any column information it falls back to standard 12 width column. </p>
+
+<p>The script doesn't make any permanent changes and does not interfere with other classes in these elements. </p>
+
+<h4>
+<a name="how-to-use-it" class="anchor" href="#how-to-use-it"><span class="octicon octicon-link"></span></a>How to use it</h4>
+
+<p>Use the plugin as with any other jquery plugin by adding it to the wrapper element that contains your sizable divs. </p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">// Regular methods of doing it. Considering .rescon is the container for your columns</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s2">".rescon"</span><span class="p">).</span><span class="nx">rescon</span><span class="p">();</span>
+
+    <span class="c1">// You can programmatically reset the plugin and take things back to their original state. This example uses a button click</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#reset'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">".rescon"</span><span class="p">).</span><span class="nx">rescon</span><span class="p">({</span> <span class="nx">action</span> <span class="o">:</span> <span class="s2">"reset"</span><span class="p">});</span>
+    <span class="p">})</span>
+
+    <span class="c1">// And run it back again. </span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#run'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s2">".rescon"</span><span class="p">).</span><span class="nx">rescon</span><span class="p">({</span> <span class="nx">action</span> <span class="o">:</span> <span class="s2">"run"</span><span class="p">});</span>
+    <span class="p">})</span>
+
+    <span class="c1">// Add custom sizes</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">".rescon"</span><span class="p">).</span><span class="nx">rescon</span><span class="p">(</span> <span class="p">{</span> 
+        <span class="nx">sizes</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">"xs"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"sm"</span> <span class="o">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s2">"md"</span> <span class="o">:</span> <span class="mi">600</span><span class="p">,</span> <span class="s2">"lg"</span> <span class="o">:</span> <span class="mi">1000</span> <span class="p">}</span>
+    <span class="p">});</span>
+
+
+<span class="p">})</span>
+</pre></div>
+
+<h4>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h4>
+
+<p>The files you need to use are under /dist folder, there is a minified version as well. </p>
+
+<h4>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h4>
+
+<p>Demo page coming soon. </p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/caneruguz">caneruguz</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
